@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cuidado Personal</title>
+  <link rel="stylesheet" href="/css/Home.css"></link>
+  <%-include("../partials/head")%>
+</head>
+
+<body class="body">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <%-include("../partials/header")%>
+  <main>
+    <!--última visita-->
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="products-title">Todos los productos</h3>
+            </div>
+            <%for(let p of productos){%>
+            <div class="col-sm-3">
+                <section class="product-box">
+                    <a href="/detalleProducto/<%=p.id %>">
+                        <figure class="product-box_image">
+                            <img src="<%=p.imagen %>" class="img-fluid" alt="imagen de producto">
+                        </figure>
+                        <article class="product-box_data">
+                            <p>$<%=p.precio%></p>
+                            <p><%=p.descuento%>%</p>
+                            <p><%=p.nombre%></p>
+                            <div class="iconProducto" align="right">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                        </article>
+                    </a>
+                </section>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+  </main>
+  <%-include("../partials/footer")%>
+</body>
+</html>
